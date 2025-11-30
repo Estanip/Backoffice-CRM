@@ -26,6 +26,13 @@ export default function Users() {
     return matchesSearch && matchesRole;
   });
 
+  const isEditingSelf = (user: User) => user.id === currentUser?.id;
+  const canEditRole = (user: User) => {
+    if (isEditingSelf(user)) return false;
+    if (currentUser?.role !== 'superadmin') return false;
+    return true;
+  };
+
   const handleEditClick = (user: User) => {
     setSelectedUser(user);
     setEditForm({ name: user.name, role: user.role, isActive: user.isActive });
@@ -36,7 +43,14 @@ export default function Users() {
   const handleEditSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedUser) {
-      updateUser(selectedUser.id, editForm);
+      const updates: { name: string; role?: Role; isActive: boolean } = {
+        name: editForm.name,
+        isActive: editForm.isActive,
+      };
+      if (canEditRole(selectedUser)) {
+        updates.role = editForm.role;
+      }
+      updateUser(selectedUser.id, updates);
       setIsEditModalOpen(false);
       setSelectedUser(null);
     }
@@ -336,12 +350,15 @@ export default function Users() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Rol
+                Rol {selectedUser && !canEditRole(selectedUser) && (
+                  <span className="text-xs text-gray-500">(solo superadmin puede cambiar roles)</span>
+                )}
               </label>
               <select
                 value={editForm.role}
                 onChange={(e) => setEditForm({ ...editForm, role: e.target.value as Role })}
-                className="input-field"
+                className={`input-field ${selectedUser && !canEditRole(selectedUser) ? 'bg-gray-100 cursor-not-allowed' : ''}`}
+                disabled={selectedUser ? !canEditRole(selectedUser) : false}
               >
                 <option value="viewer">Viewer</option>
                 <option value="admin">Admin</option>
@@ -427,7 +444,9 @@ export default function Users() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Rol
+                Rol {currentUser?.role !== 'superadmin' && (
+                  <span className="text-xs text-gray-500">(solo superadmin puede asignar roles admin)</span>
+                )}
               </label>
               <select
                 value={createForm.role}
@@ -435,8 +454,12 @@ export default function Users() {
                 className="input-field"
               >
                 <option value="viewer">Viewer</option>
-                <option value="admin">Admin</option>
-                <option value="superadmin">Super Admin</option>
+                {currentUser?.role === 'superadmin' && (
+                  <>
+                    <option value="admin">Admin</option>
+                    <option value="superadmin">Super Admin</option>
+                  </>
+                )}
               </select>
             </div>
             <div className="flex justify-end space-x-3 pt-4">
