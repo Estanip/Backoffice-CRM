@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["*"],
+  webSocketProxy: true,
   async headers() {
     return [
       {
