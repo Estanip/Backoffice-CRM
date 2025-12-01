@@ -62,7 +62,7 @@ export default function ForgotPassword() {
                   Recuerda cambiarla después de iniciar sesión.
                 </p>
               </div>
-              <Link href="/login" className="block w-full btn-primary py-3 text-center">
+              <Link href="/login" className="block w-full btn-primary py-3 text-center cursor-pointer">
                 Ir a iniciar sesión
               </Link>
             </div>
@@ -86,7 +86,7 @@ export default function ForgotPassword() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full btn-primary py-3"
+                className="w-full btn-primary py-3 cursor-pointer"
               >
                 {isLoading ? (
                   <span className="flex items-center justify-center">
@@ -104,7 +104,7 @@ export default function ForgotPassword() {
           )}
 
           <div className="mt-6 text-center">
-            <Link href="/login" className="text-sm text-indigo-600 hover:text-indigo-500">
+            <Link href="/login" className="text-sm text-indigo-600 hover:text-indigo-500 cursor-pointer">
               Volver al inicio de sesión
             </Link>
           </div>

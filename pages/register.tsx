@@ -130,7 +130,7 @@ export default function Register() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full btn-primary py-3"
+              className="w-full btn-primary py-3 cursor-pointer"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center">
@@ -149,7 +149,7 @@ export default function Register() {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               ¿Ya tienes cuenta?{' '}
-              <Link href="/login" className="text-indigo-600 hover:text-indigo-500 font-medium">
+              <Link href="/login" className="text-indigo-600 hover:text-indigo-500 font-medium cursor-pointer">
                 Inicia sesión
               </Link>
             </p>

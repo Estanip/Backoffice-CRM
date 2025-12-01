@@ -85,7 +85,7 @@ export default function Login() {
             </div>
 
             <div className="flex items-center justify-end">
-              <Link href="/forgot-password" className="text-sm text-indigo-600 hover:text-indigo-500">
+              <Link href="/forgot-password" className="text-sm text-indigo-600 hover:text-indigo-500 cursor-pointer">
                 ¿Olvidaste tu contraseña?
               </Link>
             </div>
@@ -93,7 +93,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full btn-primary py-3"
+              className="w-full btn-primary py-3 cursor-pointer"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center">
@@ -112,7 +112,7 @@ export default function Login() {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               ¿No tienes cuenta?{' '}
-              <Link href="/register" className="text-indigo-600 hover:text-indigo-500 font-medium">
+              <Link href="/register" className="text-indigo-600 hover:text-indigo-500 font-medium cursor-pointer">
                 Regístrate
               </Link>
             </p>

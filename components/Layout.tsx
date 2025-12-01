@@ -34,7 +34,7 @@ export default function Layout({ children }: LayoutProps) {
               <div className="hidden md:ml-10 md:flex md:space-x-8">
                 <button
                   onClick={() => router.push('/dashboard')}
-                  className={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ${
+                  className={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 cursor-pointer ${
                     router.pathname === '/dashboard'
                       ? 'border-indigo-500 text-gray-900'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -44,7 +44,7 @@ export default function Layout({ children }: LayoutProps) {
                 </button>
                 <button
                   onClick={() => router.push('/users')}
-                  className={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ${
+                  className={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 cursor-pointer ${
                     router.pathname === '/users'
                       ? 'border-indigo-500 text-gray-900'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -69,7 +69,7 @@ export default function Layout({ children }: LayoutProps) {
               </div>
               <button
                 onClick={handleLogout}
-                className="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors cursor-pointer"
               >
                 <svg className="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -81,7 +81,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="flex items-center md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 cursor-pointer"
               >
                 {mobileMenuOpen ? (
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,7 +102,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="pt-2 pb-3 space-y-1">
               <button
                 onClick={() => { router.push('/dashboard'); setMobileMenuOpen(false); }}
-                className={`block w-full text-left pl-3 pr-4 py-2 text-base font-medium ${
+                className={`block w-full text-left pl-3 pr-4 py-2 text-base font-medium cursor-pointer ${
                   router.pathname === '/dashboard'
                     ? 'bg-indigo-50 border-l-4 border-indigo-500 text-indigo-700'
                     : 'text-gray-600 hover:bg-gray-50'
@@ -112,7 +112,7 @@ export default function Layout({ children }: LayoutProps) {
               </button>
               <button
                 onClick={() => { router.push('/users'); setMobileMenuOpen(false); }}
-                className={`block w-full text-left pl-3 pr-4 py-2 text-base font-medium ${
+                className={`block w-full text-left pl-3 pr-4 py-2 text-base font-medium cursor-pointer ${
                   router.pathname === '/users'
                     ? 'bg-indigo-50 border-l-4 border-indigo-500 text-indigo-700'
                     : 'text-gray-600 hover:bg-gray-50'
@@ -136,7 +136,7 @@ export default function Layout({ children }: LayoutProps) {
               <div className="mt-3 px-2">
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md"
+                  className="block w-full text-left px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md cursor-pointer"
                 >
                   Cerrar sesión
                 </button>

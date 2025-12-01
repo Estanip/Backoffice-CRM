@@ -116,7 +116,7 @@ export default function Users() {
                   setCreateForm({ email: '', name: '', role: 'viewer', password: '' });
                   setIsCreateModalOpen(true);
                 }}
-                className="mt-4 sm:mt-0 btn-primary flex items-center"
+                className="mt-4 sm:mt-0 btn-primary flex items-center cursor-pointer"
               >
                 <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -214,7 +214,7 @@ export default function Users() {
                         {canEdit && (
                           <button
                             onClick={() => handleEditClick(user)}
-                            className="text-indigo-600 hover:text-indigo-900 p-1"
+                            className="text-indigo-600 hover:text-indigo-900 p-1 cursor-pointer"
                             title="Editar"
                           >
                             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -225,7 +225,7 @@ export default function Users() {
                         {canDelete && user.id !== currentUser?.id && (
                           <button
                             onClick={() => handleDeleteClick(user)}
-                            className="text-red-600 hover:text-red-900 p-1"
+                            className="text-red-600 hover:text-red-900 p-1 cursor-pointer"
                             title="Eliminar"
                           >
                             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -287,7 +287,7 @@ export default function Users() {
                     {canEdit && (
                       <button
                         onClick={() => handleEditClick(user)}
-                        className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg"
+                        className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg cursor-pointer"
                       >
                         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -297,7 +297,7 @@ export default function Users() {
                     {canDelete && user.id !== currentUser?.id && (
                       <button
                         onClick={() => handleDeleteClick(user)}
-                        className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                        className="p-2 text-red-600 hover:bg-red-50 rounded-lg cursor-pointer"
                       >
                         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -381,11 +381,11 @@ export default function Users() {
               <button
                 type="button"
                 onClick={() => setIsEditModalOpen(false)}
-                className="btn-secondary"
+                className="btn-secondary cursor-pointer"
               >
                 Cancelar
               </button>
-              <button type="submit" className="btn-primary">
+              <button type="submit" className="btn-primary cursor-pointer">
                 Guardar cambios
               </button>
             </div>
@@ -466,11 +466,11 @@ export default function Users() {
               <button
                 type="button"
                 onClick={() => setIsCreateModalOpen(false)}
-                className="btn-secondary"
+                className="btn-secondary cursor-pointer"
               >
                 Cancelar
               </button>
-              <button type="submit" className="btn-primary">
+              <button type="submit" className="btn-primary cursor-pointer">
                 Crear usuario
               </button>
             </div>
@@ -490,13 +490,13 @@ export default function Users() {
             <div className="flex justify-end space-x-3 pt-4">
               <button
                 onClick={() => setIsDeleteModalOpen(false)}
-                className="btn-secondary"
+                className="btn-secondary cursor-pointer"
               >
                 Cancelar
               </button>
               <button
                 onClick={handleDeleteConfirm}
-                className="btn-danger"
+                className="btn-danger cursor-pointer"
               >
                 Eliminar
               </button>
